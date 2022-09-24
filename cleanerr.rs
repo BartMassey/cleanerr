@@ -1,7 +1,8 @@
-fn main() {
+fn main() -> Result<(), String> {
     let argv: Vec<String> = std::env::args().collect();
     if argv.len() > 1 {
-        panic!("{}: arguments: {}", &argv[0], argv[1..].join(" "));
+        return Err(format!("{}: arguments: {}", &argv[0], argv[1..].join(" ")));
     }
     println!("no arguments");
+    Ok(())
 }
